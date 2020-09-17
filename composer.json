@@ -1,0 +1,11 @@
+{
+    "name": "drupal/authman_twitch",
+    "description": "Twitch integration for Authman.",
+    "type": "drupal-module",
+    "require": {
+        "php": "^7.3",
+        "dpi/project-authman": "*",
+        "drupal/core": "^8.9 || ^9",
+        "depotwarehouse/oauth2-twitch": "*"
+    }
+}
