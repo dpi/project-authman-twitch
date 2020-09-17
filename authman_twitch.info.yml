@@ -1,0 +1,9 @@
+name: Authman Twitch
+type: module
+description: Twitch integration for Authman
+core_version_requirement: ^8.9 || ^9
+php: 7.3
+package: Security
+dependencies:
+  - drupal:authman
+  - drupal:system (>=8.6)
