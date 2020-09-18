@@ -1,0 +1,29 @@
+<?php
+
+/**
+ * @file
+ * Hooks for Authman Twitch.
+ */
+
+declare(strict_types = 1);
+
+/**
+ * Implements hook_theme().
+ */
+function authman_twitch_theme(array $existing, string $type, string $theme, string $path): array {
+  return [
+    'authman_twitch_resource_owner' => [
+      'render element' => 'element',
+    ],
+  ];
+}
+
+/**
+ * Preprocessor for 'authman_twitch_resource_owner' theming function.
+ *
+ * @param array $variables
+ *   An array of variables.
+ */
+function template_preprocess_authman_twitch_resource_owner(array &$variables): void {
+  $variables['#attached']['library'][] = 'authman_twitch/resource-owner';
+}

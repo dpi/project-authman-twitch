@@ -1,0 +1,5 @@
+resource-owner:
+  version: VERSION
+  css:
+    theme:
+      css/resource-owner.css: {}

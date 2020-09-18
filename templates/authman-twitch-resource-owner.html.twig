@@ -1,0 +1,10 @@
+<a{{ attributes.addClass('authman-twitch resource-owner') }} href="{{ element.url }}">
+  <div class="picture-wrapper"><img src="{{ element.avatar_url }}" class="picture" /></div>
+  <div class="information">
+    <div class="personal">
+      {{ 'Owned by'|t }}
+      <div class="name">{{ element.name }}</div>
+      <div class="email">{{ element.email }}</div>
+    </div>
+  </div>
+</a>

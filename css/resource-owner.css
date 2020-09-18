@@ -1,0 +1,52 @@
+.authman-twitch.resource-owner {
+  display: flex;
+  border: 1px solid #efeff1;
+  border-radius: 4px;
+  padding: 1.5em;
+  text-decoration: none;
+  color: #efeff1;
+  background: #9147ff;
+}
+
+.authman-twitch.resource-owner .picture {
+  max-width: 200px;
+  min-width: 64px;
+  height: auto;
+  border-radius: 50%;
+  border: 3px solid #0e0e10;
+}
+
+.authman-twitch.resource-owner .information {
+  position: relative;
+  order: 2;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1em;
+  background-color: #0e0e10;
+  flex: 1;
+  margin-left: 1em;
+  border-radius: 4px;
+}
+
+.authman-twitch.resource-owner .information::before {
+  position: absolute;
+  right: 0;
+  content: 'Twitch';
+  font-size: 3em;
+  color: #2e2e30;
+  line-height: 1em;
+  transform: translate(.5em) rotate(90deg);
+}
+
+.authman-twitch.resource-owner .name {
+  font-size: 1.625em;
+  color: #efeff1;
+  font-weight: 600;
+}
+
+.authman-twitch.resource-owner .email {
+  font-size: 1.25em;
+  color: #efeff1;
+  font-weight: 300;
+}

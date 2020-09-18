@@ -155,8 +155,15 @@ class AuthmanTwitch extends AuthmanOauthPluginBase implements ConfigurableInterf
    */
   public function renderResourceOwner(ResourceOwnerInterface $resourceOwner): array {
     assert($resourceOwner instanceof TwitchUser);
-    \Drupal::messenger()->addMessage(\t('Success! This token is owned by @id', ['@id' => $resourceOwner->getId()]));
-    return [];
+    $build = [];
+    $build['owner'] = [
+      '#theme' => 'authman_twitch_resource_owner',
+      'name' => $resourceOwner->getDisplayName(),
+      'email' => $resourceOwner->getEmail(),
+      'url' => 'https://www.twitch.tv/' . $resourceOwner->getUsername(),
+      'avatar_url' => $resourceOwner->getLogo(),
+    ];
+    return $build;
   }
 
 }
