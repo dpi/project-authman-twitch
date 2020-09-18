@@ -5,10 +5,10 @@ declare(strict_types = 1);
 namespace Drupal\authman_twitch\Plugin\AuthmanOauth;
 
 use Depotwarehouse\OAuth2\Client\Twitch\Entity\TwitchUser;
-use Depotwarehouse\OAuth2\Client\Twitch\Provider\Twitch;
 use Drupal\authman\AuthmanOauth;
 use Drupal\authman\Plugin\AuthmanOauthPluginBase;
 use Drupal\authman\Plugin\KeyType\OauthClientKeyType;
+use Drupal\authman_twitch\AuthmanTwitchProvider;
 use Drupal\Component\Plugin\ConfigurableInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
@@ -94,7 +94,7 @@ class AuthmanTwitch extends AuthmanOauthPluginBase implements ConfigurableInterf
     }
 
     $values = $clientKey->getKeyValues();
-    $provider = new Twitch([
+    $provider = new AuthmanTwitchProvider([
       'clientId' => $values['client_id'],
       'clientSecret' => $values['client_secret'],
     ] + $providerOptions);
@@ -154,8 +154,6 @@ class AuthmanTwitch extends AuthmanOauthPluginBase implements ConfigurableInterf
    * {@inheritdoc}
    */
   public function renderResourceOwner(ResourceOwnerInterface $resourceOwner): array {
-    // This method won't work until
-    // https://github.com/tpavlek/oauth2-twitch/pull/17 is committed.
     assert($resourceOwner instanceof TwitchUser);
     \Drupal::messenger()->addMessage(\t('Success! This token is owned by @id', ['@id' => $resourceOwner->getId()]));
     return [];
